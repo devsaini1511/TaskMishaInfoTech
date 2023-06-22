@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskmishainfotech.common.DB_NAME
 import com.example.taskmishainfotech.common.removeItemDialog
+import com.example.taskmishainfotech.common.showData
 import com.example.taskmishainfotech.common.showLoader
 import com.example.taskmishainfotech.databinding.FragmentStoreDataListBinding
 import com.example.taskmishainfotech.domain.TaskData
@@ -24,7 +25,7 @@ class StoreDataListFragment : Fragment() {
     private var _binding: FragmentStoreDataListBinding? = null
     private val binding get() = _binding!!
     private val firebaseFirestore by lazy { FirebaseFirestore.getInstance() }
-    private val storeListAdapter = StoreListAdapter()
+    private val storeListAdapter = StoreListAdapter(listener = ::onItemCLick)
     private lateinit var registration: ListenerRegistration
     private lateinit var taskList: MutableList<TaskData>
 
@@ -101,5 +102,13 @@ class StoreDataListFragment : Fragment() {
         }
     }
 
+    private fun onItemCLick(taskData: TaskData, position: Int) {
+        with(taskData) {
+            Timber.d("value of tasdata is $title")
+            showData(title, description, imageUrl) {
+
+            }
+        }
+    }
 
 }

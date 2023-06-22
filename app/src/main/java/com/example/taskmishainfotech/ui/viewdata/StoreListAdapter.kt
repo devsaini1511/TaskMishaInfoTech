@@ -10,7 +10,7 @@ import com.example.taskmishainfotech.databinding.HolderItemLayoutBinding
 import com.example.taskmishainfotech.domain.TaskData
 
 class StoreListAdapter(
-
+    val listener: (TaskData, Int) -> Unit,
 ) : ListAdapter<TaskData, StoreListAdapter.TaskListItemHolder>(DIFF_CALLBACK) {
 
 
@@ -25,14 +25,14 @@ class StoreListAdapter(
 
     override fun onBindViewHolder(holder: TaskListItemHolder, position: Int) {
         with(getItem(position)) {
-            holder.bind(this)
+            holder.bind(this) { listener(this, position) }
         }
     }
 
     inner class TaskListItemHolder(private val itemBinding: HolderItemLayoutBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
 
-        fun bind(data: TaskData) {
+        fun bind(data: TaskData, listener: () -> Unit) {
             itemBinding.checkBox.text = data.title
             itemBinding.checkBox.apply {
                 text = data.title
@@ -44,6 +44,8 @@ class StoreListAdapter(
                     paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
                 }
                 setOnCheckedChangeListener { _, isChecked ->
+                    listener()
+
                     paintFlags = if (isChecked) {
                         paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                     } else {
