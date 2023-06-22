@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="beige_orange">#FFF1E9</color>
+    <color name="royal_blue">#FF1C256C</color>
+    <color name="maybe_black">#FF0d1c2e</color>
+    <color name="midnight_grey">#FF4c4c4c</color>
+    <color name="light_grey">#F1F1F1</color>
+    <color name="dark_grey">#353333</color>
+    <color name="another_black">#1a1a1a</color>
+    <color name="green">#4CAF50</color>
+    <color name="light_green">#77BD30</color>
+    <color name="cream_green">#CC95CD5C</color>
+    <color name="red">#DD3529</color>
+    <color name="dash_grey">#b2b2b2</color>
+    <color name="image_tint_orange">#FF9B4D</color>
+    <color name="soft_blue">#0D1C256C</color>
+    <color name="status_bar_cream_color">#F7F7F7</color>
+    background_soft_royal_20.xml
+</resources>

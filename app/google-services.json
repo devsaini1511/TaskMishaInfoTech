@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "847908770528",
+    "project_id": "taskmisha",
+    "storage_bucket": "taskmisha.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847908770528:android:af4f8b9a02129000947685",
+        "android_client_info": {
+          "package_name": "com.example.taskmishainfotech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "847908770528-fechemfgsi6134sou60parm9ckl5mn6p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdRUkHw-tDJ3lW1LixPFnVMfYrqIa05LI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "847908770528-fechemfgsi6134sou60parm9ckl5mn6p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
