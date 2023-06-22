@@ -4,10 +4,9 @@ data class TaskData(
     var taskId: String,
     var title: String,
     var description: String,
-    var completed: String,
     var imageUrl: String,
     var timestamp: Long
 
 ){
-    constructor() : this("","","","","",0)
+    constructor() : this("", "", "", "", 0)
 }

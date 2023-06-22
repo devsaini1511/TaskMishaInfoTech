@@ -44,9 +44,11 @@ class StoreDataFragment : Fragment() {
 
 
     private fun setUpViewListener() {
-
+        viewOnClickListener()
         binding.addTask.setOnClickListener {
-            addDataInFirebase()
+            if (viewModel.descriptionInput.value.isNotEmpty() && viewModel.titleInput.value.isNotEmpty()) addDataInFirebase() else showToast(
+                "Please fill details"
+            )
         }
         binding.viewAllTask.setOnClickListener {
             val direction =
@@ -59,7 +61,9 @@ class StoreDataFragment : Fragment() {
         val taskData = TaskData(
             generateRandomId().toString(),
             viewModel.titleInput.value,
-            "", "", "", System.currentTimeMillis()
+            viewModel.descriptionInput.value,
+            viewModel.imageUrl.value,
+            System.currentTimeMillis()
         )
 
         showLoader = true
@@ -78,5 +82,30 @@ class StoreDataFragment : Fragment() {
             }
     }
 
+    private fun viewOnClickListener() {
+        binding.richEditor.setOnTextChangeListener {
+            viewModel.setDescriptionInput(it)
+        }
 
+        binding.actionBold.setOnClickListener {
+            binding.richEditor.setBold()
+        }
+
+        binding.actionItalic.setOnClickListener {
+            binding.richEditor.setItalic()
+        }
+
+        binding.actionUnderline.setOnClickListener {
+            binding.richEditor.setUnderline()
+        }
+
+        binding.actionStrikethrough.setOnClickListener {
+            binding.richEditor.setStrikeThrough()
+        }
+
+        binding.actionInsertImage.setOnClickListener {
+            binding.richEditor.insertImage(viewModel.imageUrl.value, "", 100, 100)
+        }
+
+    }
 }
